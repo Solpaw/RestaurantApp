@@ -1,0 +1,16 @@
+@import '../../../assets/scss/variables';
+
+.container {
+    display: flex;
+    background-color: mat-color($color-accent, 500);
+    height: 80px;
+}
+
+app-navbar-item:last-of-type {
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+app-navbar-item:first-of-type {
+    margin-left: 25px;
+}

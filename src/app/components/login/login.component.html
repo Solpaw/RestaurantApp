@@ -1,0 +1,21 @@
+<header>Restauracja</header>
+<div class="mainContainer">
+    <div class="formContainer">
+        <form [formGroup]="form">
+          <div *ngIf="form.errors?.invalidCred" class="errorBox">Nieprawidłowe hasło/email!</div>
+          <div *ngIf="form.errors?.serverUna" class="errorBox">Serwer nie odpowiada!</div>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="form.get('email').errors?.required">Pole nie może być puste!</mat-error>
+          </mat-form-field>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Hasło</mat-label>
+            <input formControlName="password" class="password" matInput type="password">
+            <mat-error *ngIf="form.get('password').errors?.required">Pole nie może być puste!</mat-error>
+          </mat-form-field>
+        </form>
+        <button (click)="logIn()" class="conButton" mat-raised-button color="primary">Zaloguj</button>
+        <button routerLink="/dashboard/contact" mat-raised-button color="accent">Cofnij</button>
+    </div>
+</div>

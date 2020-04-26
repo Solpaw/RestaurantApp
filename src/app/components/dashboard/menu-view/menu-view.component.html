@@ -1,0 +1,11 @@
+<div class="window">
+    <div class="container">
+        <div *ngFor="let cat of categories">
+            <div class="category">{{cat}}</div>
+            <ng-container *ngFor="let post of posts; index as i">
+                <app-menu-item *ngIf="post.category==cat" [index]="i" [id]="post._id" [price]="post.price" [description]="post.description" [name]="post.name" [category]="post.category" (reload)="ngOnInit()"></app-menu-item>
+            </ng-container>
+        </div>
+        <button *ngIf="loggedIn" routerLink="/newMenuItem" mat-raised-button color="accent">Dodaj</button>
+    </div>
+</div>

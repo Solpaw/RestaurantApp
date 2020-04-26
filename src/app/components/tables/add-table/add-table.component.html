@@ -1,0 +1,26 @@
+<header>Dodaj stolik</header>
+
+<div class="view">
+    <div class="container">
+        <form  [formGroup]="form">
+            <div *ngIf="form.errors" class="errorBox">Pozycja nie została dodana!</div>
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Numer stolika</mat-label>
+                <input formControlName="number" matInput placeholder="Np. 1">
+                <mat-error *ngIf="form.get('number').errors?.required">Pole nie może być puste!</mat-error>
+                <mat-error *ngIf="form.get('number').errors?.pattern">Proszę wpisać liczbę!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Rozmiar stolika</mat-label>
+                <input formControlName="capacity" matInput placeholder="Np. 4">
+                <mat-error *ngIf="form.get('capacity').errors?.required">Pole nie może być puste!</mat-error>
+                <mat-error *ngIf="form.get('capacity').errors?.pattern">Proszę wpisać liczbę!</mat-error>
+            </mat-form-field>
+            
+        </form>
+        
+        <button (click)="add()" mat-raised-button color="accent">Dodaj</button>
+        <button routerLink="/dashboard/tables" mat-raised-button color="accent">Anuluj</button>
+    </div>
+</div>

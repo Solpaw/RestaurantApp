@@ -1,0 +1,19 @@
+@import '../../../../assets/scss/variables';
+
+.window {
+    display: flex;
+    justify-content: center;
+    .container {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        >* {
+            margin: 10px 0;
+        }
+        .category {
+            font-size: xx-large;
+            color: mat-color($color-accent,500);
+            margin-bottom: 20px;
+        }
+    }
+}

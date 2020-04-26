@@ -1,0 +1,39 @@
+<header>Edytuj pozycję menu</header>
+
+<div class="view">
+    <div class="container">
+        <form  [formGroup]="form">
+            <div *ngIf="form.errors" class="errorBox">Pozycja nie została zmieniona!</div>
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Category</mat-label>
+                <input formControlName="category" matInput matInput placeholder="Ex. Pizza">
+                <mat-error *ngIf="form.get('category').errors?.required">Pole nie może być puste!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input formControlName="name" matInput matInput placeholder="Ex. Salami">
+                <mat-error *ngIf="form.get('name').errors?.required">Pole nie może być puste!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Description</mat-label>
+                <input formControlName="description" matInput matInput placeholder="Ex. ser, szynka, pieczarki">
+                <mat-error *ngIf="form.get('description').errors?.required">Pole nie może być puste!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Price</mat-label>
+                <input formControlName="price" matInput matInput placeholder="Ex. 00.00">
+                <mat-error *ngIf="form.get('price').errors?.required">Pole nie może być puste!</mat-error>
+                <mat-error *ngIf="form.get('price').errors?.pattern">Zły format ceny!</mat-error>
+            </mat-form-field>
+        </form>
+
+        <button (click)="edit()" mat-raised-button color="accent">Potwierdź</button>
+<button routerLink="/dashboard/menu" mat-raised-button color="accent">Anuluj</button>
+    </div>
+</div>
+
+
+

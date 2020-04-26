@@ -1,0 +1,6 @@
+<div class="window">
+    <div class="container">
+        <app-table-item *ngFor="let table of tableList" [number]="table.number" [capacity]="table.size" [id]="table._id" (reload)="ngOnInit()"></app-table-item>
+        <button routerLink="/newTable" mat-raised-button color="accent">Dodaj</button>
+    </div>
+</div>

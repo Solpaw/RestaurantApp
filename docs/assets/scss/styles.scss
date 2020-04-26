@@ -1,0 +1,77 @@
+@import "reset";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,800,900&display=swap&subset=latin-ext');
+$fa-font-path: "node_modules/@fortawesome/fontawesome-free/webfonts";
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+@import "variables";
+@import "theme";
+
+body {
+    background-color: mat-color($color-primary, 500);
+    color: $color-text;
+    fill: $color-text;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+}
+
+header {
+    height: 100px;
+    box-sizing: border-box;
+    background-color: mat-color($color-accent, 500);
+    padding-top: 40px;
+    padding-left: 40px;
+    font-size: 3em;
+}
+
+.errorBox {
+    text-align: center;
+    color: darkred;
+    border: 1px solid darkred;
+    background-color: lightpink;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.successBox {
+    text-align: center;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    background-color: lightgreen;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+// ngx-material-timepicker-content {
+//     header {
+//         background-color: mat-color($color-accent,500) !important;
+//     }
+// }
+
+// .ng-star-inserted {
+//     --body-background-color: #fff;
+//     --primary-font-family: 'Roboto',sans-serif;
+//     --button-color: orange;
+//     --dial-active-color: #fff;
+//     --dial-inactive-color: rgba(255, 255, 255, .5);
+//     --dial-background-color: orange;
+//     --dial-editable-active-color: orange;
+//     --dial-editable-background-color: #fff;
+//     --clock-face-time-active-color: #fff;
+//     --clock-face-time-inactive-color: #6c6c6c;
+//     --clock-face-inner-time-inactive-color: #929292;
+//     --clock-face-time-disabled-color: #c5c5c5;
+//     --clock-face-background-color: #f0f0f0;
+//     --clock-hand-color: orange;
+// }
+
+.mat-stepper-vertical {
+    background-color: mat-color($color-primary,500);
+    .mat-step-icon {
+        background-color: mat-color($color-accent, 500);
+    }
+}
+
+@import "mixins/content";

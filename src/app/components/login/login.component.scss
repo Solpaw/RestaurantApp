@@ -1,0 +1,30 @@
+@import '../../../assets/scss/variables';
+
+.mainContainer {
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    .formContainer {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid mat-color($color-accent, 500);;
+        border-radius: 20px;
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        .mat-raised-button {
+            color: $color-text;
+        }
+        .conButton {
+            background-color: mat-color($color-primary, 800) !important;
+        }
+    }
+}

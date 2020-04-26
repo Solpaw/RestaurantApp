@@ -1,0 +1,22 @@
+.container  {
+    display: flex;
+
+    .data {
+        flex: 2;
+        display: flex;
+
+        .info {
+            margin-right: 50px;
+            flex: 2;
+
+            .name {
+                font-size: x-large;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    >* {
+        margin: 0 2px;
+    }
+}

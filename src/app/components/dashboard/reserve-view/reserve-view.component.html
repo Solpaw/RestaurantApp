@@ -1,0 +1,63 @@
+
+<form [formGroup]="form">
+    <mat-vertical-stepper color="accent" (selectionChange)="tabSelector($event)" linear>
+        <mat-step label="Data" [completed]="dateStepCompleted()">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Wybierz datę</mat-label>
+                <input [min]="minDate" formControlName="date" matInput [matDatepicker]="picker">
+                <mat-error *ngIf="form.get('date').errors?.required">Proszę wybrać datę z listy</mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </mat-step>
+        <mat-step label="Godzina" [completed]="hourStepCompleted()">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Wybierz godzinę</mat-label>
+                <input [min]="minTime" [max]="maxTime" formControlName="hour" placeholder="gg:mm" matInput [format]="24" [ngxTimepicker]="hour">
+                <mat-error *ngIf="form.get('hour').errors?.required">Proszę wybrać godzinę</mat-error>
+                <ngx-material-timepicker-toggle matSuffix [for]="hour"></ngx-material-timepicker-toggle>
+                <ngx-material-timepicker [theme]="darkTheme" [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn" #hour></ngx-material-timepicker>
+                <ng-template #cancelBtn>
+                    <button mat-raised-button color="accent">Anuluj</button>
+                </ng-template>
+                <ng-template #confirmBtn>
+                    <button mat-raised-button color="accent">Potwierdź</button>
+                </ng-template>
+            </mat-form-field>
+        </mat-step>
+        <mat-step label="Stolik" [completed]="tableStepCompleted()">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Wybierz stolik</mat-label>
+                <mat-select formControlName="table">
+                  <mat-option *ngFor="let table of tableList" [value]="table">
+                    {{table.text}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('table').errors?.required">Proszę wybrać stolik</mat-error>
+              </mat-form-field>
+        </mat-step>
+        <mat-step label="Dane" [completed]="dataStepCompleted()">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+                <mat-error *ngIf="form.get('hour').errors">Proszę wpisać email</mat-error>
+            </mat-form-field>
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Imię</mat-label>
+                <input formControlName="name" matInput>
+                <mat-error *ngIf="form.get('hour').errors?.required">Proszę wpisać imię</mat-error>
+            </mat-form-field>
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Nazwisko</mat-label>
+                <input formControlName="surname" matInput>
+                <mat-error *ngIf="form.get('hour').errors?.required">Proszę wpisać nazwisko</mat-error>
+            </mat-form-field>
+        </mat-step>
+        <mat-step label="Potwierdź">
+            <app-display-reservation-data [name]="form.get('name').value" [surname]="form.get('surname').value" [email]="form.get('email').value" [table]="form.get('table').value.number" [date]="date"></app-display-reservation-data>
+            <button (click)="confirm()" mat-raised-button color="accent">Potwierdź rezerwację</button>
+            <div *ngIf="confirmationError" class="errorBox">Rezerwacja nie powiodła się!</div>
+            <div *ngIf="confirmationSuccess" class="successBox">Rezerwacja przyjęta! Na podany adres email wysłaliśmy szczegóły rezerwacji.</div>
+        </mat-step>
+    </mat-vertical-stepper>
+</form>

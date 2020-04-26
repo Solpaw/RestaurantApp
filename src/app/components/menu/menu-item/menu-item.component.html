@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="data">
+        <div class="info">
+            <div class="name">{{index+1}}. {{name}}</div>
+            <div class="desc">{{description}}</div>
+        </div>
+        <span class="price">{{price}} zł</span>
+    </div>
+    <button *ngIf="loggedIn" [routerLink]="['/edit', id]" mat-raised-button color="accent">Edytuj</button>
+    <button *ngIf="loggedIn" (click)="remove()" mat-raised-button color="accent">Usuń</button>
+</div>
