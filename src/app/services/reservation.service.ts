@@ -36,6 +36,15 @@ export class ReservationService {
     return this.http.get(`${this.url}/reservations`);
   }
 
+  getReservationsAdmin(): Observable<any> {
+    const opts = {
+      headers: new HttpHeaders({
+        'x-auth-token': `${this.auth.getToken()}`
+      })
+    }
+    return this.http.get(`${this.url}/reservations/all`, opts);
+  }
+
   deleteReservation(id): Observable<any> {
     const opts = {
       headers: new HttpHeaders({
