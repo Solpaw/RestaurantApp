@@ -3,6 +3,7 @@
     <app-navbar-item routerLink="/dashboard/reserve" routerLinkActive="active">Rezerwuj</app-navbar-item>
     <app-navbar-item routerLink="/dashboard/menu" routerLinkActive="active">Menu</app-navbar-item>
     <app-navbar-item *ngIf="loggedIn" routerLink="/dashboard/tables" routerLinkActive="active">Stoliki</app-navbar-item>
+    <app-navbar-item *ngIf="loggedIn" routerLink="/dashboard/reservations" routerLinkActive="active">Rezerwacje</app-navbar-item>
     <app-navbar-item *ngIf="!loggedIn" routerLink="/login">Logowanie</app-navbar-item>
     <app-navbar-item (click)="logOut()" *ngIf="loggedIn">Wyloguj</app-navbar-item>
 </div>

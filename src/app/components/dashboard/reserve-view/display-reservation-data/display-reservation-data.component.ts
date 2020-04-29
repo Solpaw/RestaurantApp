@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-reservation-data',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayReservationDataComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +17,10 @@ export class DisplayReservationDataComponent implements OnInit {
   @Input() email;
   @Input() table;
   @Input() date;
+  @Input() id;
+  @Input() removeTab = false;
+
+  remove() {
+    this.router.navigate([`/cancel/${this.id}`]);
+  }
 }

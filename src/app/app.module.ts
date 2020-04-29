@@ -32,6 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { DisplayReservationDataComponent } from './components/dashboard/reserve-view/display-reservation-data/display-reservation-data.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { CancelReservationComponent } from './components/dashboard/reserve-view/cancel-reservation/cancel-reservation.component';
+import { ReservationListComponent } from './components/dashboard/reserve-view/reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CancelReservationComponent } from './components/dashboard/reserve-view/
     TableItemComponent,
     AddTableComponent,
     DisplayReservationDataComponent,
-    CancelReservationComponent
+    CancelReservationComponent,
+    ReservationListComponent
   ],
   imports: [
     BrowserModule,

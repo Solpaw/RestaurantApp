@@ -10,6 +10,7 @@ import { MenuEditComponent } from './components/menu/menu-edit/menu-edit.compone
 import { TableViewComponent } from './components/tables/table-view/table-view.component';
 import { AddTableComponent } from './components/tables/add-table/add-table.component';
 import { CancelReservationComponent } from './components/dashboard/reserve-view/cancel-reservation/cancel-reservation.component';
+import { ReservationListComponent } from './components/dashboard/reserve-view/reservation-list/reservation-list.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'reserve', component: ReserveViewComponent},
     {path: 'menu', component: MenuViewComponent},
     {path: 'contact', component: ContactViewComponent},
-    {path: 'tables', component: TableViewComponent}
+    {path: 'tables', component: TableViewComponent},
+    {path: 'reservations', component: ReservationListComponent}
   ]},
   {path: 'login',component: LoginComponent},
   {path: 'newMenuItem', component: MenuAddComponent},

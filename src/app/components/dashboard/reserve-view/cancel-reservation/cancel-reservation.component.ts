@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 })
 export class CancelReservationComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private reservations: ReservationService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private reservations: ReservationService) { }
 
   id;
 
@@ -26,5 +26,6 @@ export class CancelReservationComponent implements OnInit {
       },err=>{
         console.log(err);
       })
+    this.router.navigate(['/dashboard/menu']);
   }
 }
