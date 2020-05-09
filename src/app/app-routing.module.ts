@@ -11,6 +11,7 @@ import { TableViewComponent } from './components/tables/table-view/table-view.co
 import { AddTableComponent } from './components/tables/add-table/add-table.component';
 import { CancelReservationComponent } from './components/dashboard/reserve-view/cancel-reservation/cancel-reservation.component';
 import { ReservationListComponent } from './components/dashboard/reserve-view/reservation-list/reservation-list.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -18,13 +19,13 @@ const routes: Routes = [
     {path: 'reserve', component: ReserveViewComponent},
     {path: 'menu', component: MenuViewComponent},
     {path: 'contact', component: ContactViewComponent},
-    {path: 'tables', component: TableViewComponent},
-    {path: 'reservations', component: ReservationListComponent}
+    {path: 'tables', component: TableViewComponent, canActivate: [AuthGuardService]},
+    {path: 'reservations', component: ReservationListComponent, canActivate: [AuthGuardService]}
   ]},
   {path: 'login',component: LoginComponent},
-  {path: 'newMenuItem', component: MenuAddComponent},
-  {path: 'newTable', component: AddTableComponent},
-  {path: 'edit/:id', component: MenuEditComponent},
+  {path: 'newMenuItem', component: MenuAddComponent, canActivate: [AuthGuardService]},
+  {path: 'newTable', component: AddTableComponent, canActivate: [AuthGuardService]},
+  {path: 'edit/:id', component: MenuEditComponent, canActivate: [AuthGuardService]},
   {path: 'cancel/:id', component: CancelReservationComponent},
   {path: '', redirectTo: '/dashboard/menu', pathMatch: 'full'}
 ];
