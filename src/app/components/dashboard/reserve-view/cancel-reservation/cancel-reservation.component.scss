@@ -1,0 +1,10 @@
+.view {
+    display: flex;
+    justify-content: center;
+    .container {
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+}

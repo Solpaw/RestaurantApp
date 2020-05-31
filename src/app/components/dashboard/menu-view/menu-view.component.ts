@@ -13,7 +13,6 @@ export class MenuViewComponent implements OnInit {
 
   posts;
   categories = [];
-
   loggedIn;
 
   ngOnInit(): void {
@@ -25,6 +24,16 @@ export class MenuViewComponent implements OnInit {
           ele.category = ele.category.charAt(0).toUpperCase() + ele.category.slice(1);
         })
         this.findCategories(this.posts);
+        this.posts.sort((a,b)=>{
+          if(a.category>b.category) return 1;
+          else if (a.category<b.category) return -1;
+          else return 0;
+        });
+        this.categories.sort((a,b)=>{
+          if(a>b) return 1;
+          else if (a<b) return -1;
+          else return 0;
+        })
       },err=>{
         console.log(err);
       });
